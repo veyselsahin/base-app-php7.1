@@ -12,5 +12,5 @@ RUN dpkg-reconfigure --frontend noninteractive tzdata
 RUN apt -y update && apt install -y less php7.1 php7.1-fpm php7.1-cli php7.1-mbstring php-mbstring php7.1-mcrypt php-intl php7.1-curl php7.1-gd php7.1-xml zip unzip php7.1-zip php-curl php7.1-mysql php-mysql php-pear php-dev php7.1-redis
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt install -y nodejs
-RUN npm install -g forever babel-loader node-babel
+RUN npm install -g forever babel-loader node-babel yarn
 RUN sed -i -e "s/;clear_env\s*=\s*no/clear_env = no/g" /etc/php/7.1/fpm/pool.d/www.conf
