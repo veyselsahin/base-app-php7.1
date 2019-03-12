@@ -14,3 +14,9 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt install -y nodejs
 RUN npm install -g forever babel-loader node-babel yarn
 RUN sed -i -e "s/;clear_env\s*=\s*no/clear_env = no/g" /etc/php/7.1/fpm/pool.d/www.conf
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+RUN php composer-setup.php
+RUN php -r "unlink('composer-setup.php');"
+RUN cp ./composer.phar /usr/bin/composer
+RUN ./composer.phar global require hirak/prestissimo
